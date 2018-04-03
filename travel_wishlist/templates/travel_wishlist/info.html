@@ -1,0 +1,18 @@
+{% extends 'travel_wishlist/base.html' %}
+
+{% block content %}
+  <div class = "place">
+    <div class = "info">
+      <h1>{{place.name}}</h1>
+      {% if place.visited is True %}
+        <p>Visited On {{place.date_visited}}</p>
+      <br>
+      {% else %}
+        <form method = "POST" class = "visit-place-form">
+          {% csrf_token %}
+          <button type = "submit" class = "save button">Save</button>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
